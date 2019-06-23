@@ -42,8 +42,8 @@
                                         </button>
                                         <div class="collapse navbar-collapse" id="navbar-collapse-1">
                                             <ul class="navbar-nav ml-xl-auto">
-                                                <li class="nav-item dropdown active mega-menu mega-menu--wide">
-                                                    <a href="#logo" class="nav-link">Home</a>
+                                                <li class="nav-item active mega-menu mega-menu--wide">
+                                                    <a href="#home" class="nav-link">Home</a>
                                                 </li>
                                                 <li class="nav-item dropdown active mega-menu mega-menu--wide">
                                                     <a href="#why_us" class="nav-link">Why WordPress Guy</a>
@@ -51,44 +51,8 @@
                                                 <li class="nav-item dropdown active mega-menu mega-menu--wide">
                                                     <a href="#packages" class="nav-link">Maintenance Packages</a>
                                                 </li>
-                                                <li class="nav-item dropdown  mega-menu mega-menu--wide">
-                                                    <a href="#" class="nav-link dropdown-toggle" id="second-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
-                                                    <ul class="dropdown-menu" aria-labelledby="second-dropdown">
-                                                        <li>
-                                                            <div class="row" style="z-index: 99;">
-                                                                <div class="col-lg-12">
-                                                                    <h4 class="title">Wordpress Services</h4>
-                                                                    <div class="row">
-                                                                        <div class="col-lg-4">
-                                                                            <div class="divider"></div>
-                                                                            <ul class="menu">
-                                                                                <h6>Maintenance</h6>
-                                                                                <li><a href="/"><i class="fa fa-angle-right"></i>Personal Website</a></li>
-                                                                                <li><a href="/"><i class="fa fa-angle-right"></i>Corporate Website</a></li>
-                                                                                <li><a href="/"><i class="fa fa-angle-right"></i>Agencies / Bulk Orders</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div class="col-lg-4">
-                                                                            <div class="divider"></div>
-                                                                            <ul class="menu">
-                                                                                <h6>Optimisation</h6>
-                                                                                <li><a href="/"><i class="fa fa-angle-right"></i>Health Checks</a></li>
-                                                                                <li><a href="/"><i class="fa fa-angle-right"></i>Performance Enhancement</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div class="col-lg-4">
-                                                                            <div class="divider"></div>
-                                                                            <ul class="menu">
-                                                                                <h6>Support &amp; Development</h6>
-                                                                                <li><a href="/"><i class="fa fa-angle-right"></i>Premium Support</a></li>
-                                                                                <li><a href="/"><i class="fa fa-angle-right"></i>Custom Development</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
+                                                <li class="nav-item dropdown active mega-menu mega-menu--wide">
+                                                    <a href="#contact_us" class="nav-link">Contact Us</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -96,16 +60,18 @@
                                 </div>
                             </div>
                         </div>
+                        <!--
                         <div class="col-auto hidden-md-down pl-0 pl-md-1" style="padding-top: 2px;">
                             <div class="header-dropdown-buttons">
-                                <a href="mailto: callum_thom@live.co.za?subject=Website%20Enquiry" class="btn btn-sm btn-default">Contact Us <i class="fa fa-envelope-o pl-1"></i></a>
+                                <a href="#contact_us" class="btn btn-sm btn-default">Contact Us <i class="fa fa-envelope-o pl-1"></i></a>
                             </div>
                         </div>
+                        -->
                     </div>
                 </div>
             </header>
         </div><!-- /navbar -->
-        <div class="banner clearfix">
+        <div id="home" class="banner clearfix">
             <div class="slideshow">
                 <div class="slider-revolution-5-container">
                     <div id="slider-banner-fullscreen" class="slider-banner-fullscreen-hero rev_slider" data-version="5.0">
@@ -171,6 +137,7 @@
                     </div>
                 </div>
             </div>
+            <div id="why_us"></div>
         </section><!-- /introduction -->
         <section class="pv-40 padding-bottom-clear light-gray-bg">
             <div class="container">
@@ -294,6 +261,7 @@
                     </div>
                 </div>
             </div>
+            <div id="packages"></div>
         </section><!-- /tech_stack -->
         <section class="pv-30">
             <div class="container pv-30">
@@ -393,6 +361,7 @@
                     </div>
                 </div>
             </div>
+            <div id="contact_us"></div>
         </section><!-- /pricing -->
         <div class="dark-translucent-bg footer-top animated-text default-hovered" style="">
             <div class="container">
@@ -400,12 +369,16 @@
                     <div class="col-12">
                         <div class="call-to-action text-center">
                             <div class="row">
-                                <div class="col-md-8">
-                                    <h2 class="mt-4">Is your website slow? We can help!</h2>
-                                    <h2 class="mt-4">Get in touch today.</h2>
+                                <div class="col-md-4">
+                                    <p class="mt-3"><a href="tel: 0027 82 305 7490" class="btn btn-animated btn-lg btn-gray-transparent">Telephone <i class="fa fa-phone pl-20"></i></a></p>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <h2 class="mt-4">Talk to Us.</h2>
+                                    <h2 class="mt-4">We're Ready To Help You.</h2>
                                 </div>
                                 <div class="col-md-4">
-                                    <p class="mt-3"><a href="mailto:callum_thom@live.co.za?Subject=Corporate%20Agency%20Maintenance%20Quote" class="btn btn-animated btn-lg btn-gray-transparent">My Site Is Slow<i class="fa fa-tachometer pl-20"></i></a></p>
+                                    <p class="mt-3"><a href="mailto:callum_thom@live.co.za?Subject=Corporate%20Agency%20Maintenance%20Quote" class="btn btn-animated btn-lg btn-gray-transparent">Email <i class="fa fa-envelope-o pl-20"></i></a></p>
                                 </div>
                             </div>
                         </div>
@@ -425,8 +398,8 @@
 
                                     <ul class="list-inline mb-20">
                                         <li class="list-inline-item"><i class="text-default fa fa-map-marker pr-1"></i>Cape Town, South Africa</li>
-                                        <li class="list-inline-item"><a href="#" class="link-dark"><i class="text-default fa fa-phone pl-10 pr-1"></i>+27 82 305 7490</a></li>
-                                        <li class="list-inline-item"><a href="#" class="link-dark"><i class="text-default fa fa-envelope-o pl-10 pr-1"></i>callum_thom@live.co.za</a></li>
+                                        <li class="list-inline-item"><a href="tel: 0027 82 305 7490" class="link-dark"><i class="text-default fa fa-phone pl-10 pr-1"></i>+27 82 305 7490</a></li>
+                                        <li class="list-inline-item"><a href="mailto: callum_thom@live.co.za" class="link-dark"><i class="text-default fa fa-envelope-o pl-10 pr-1"></i>callum_thom@live.co.za</a></li>
                                     </ul>
                                     <!--
                                     <ul class="social-links circle animated-effect-1 margin-clear">
