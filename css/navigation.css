@@ -758,7 +758,7 @@ opacity:1
     font-size:13px;
     font-weight:700;
     text-transform:uppercase;
-    font-family:"Roboto Slab"
+    font-family:"Roboto Slab";
     margin-bottom:5px;
 }
 
@@ -842,27 +842,26 @@ website:    http://www.themepunch.com
       opacity:1
   }
 .gyges .tp-thumb-img-wrap {
-  padding:3px;
+    padding:3px;
     background:#000;
-  background-color:rgba(0,0,0,0.25);
-  display:inline-block;
-
-  width:100%;
-  height:100%;
-  position:relative;
-  margin:0px;
-  box-sizing:border-box;
+    background-color:rgba(0,0,0,0.25);
+    display:inline-block;
+    width:100%;
+    height:100%;
+    position:relative;
+    margin:0px;
+    box-sizing:border-box;
     transition:all 0.3s;
     -webkit-transition:all 0.3s;
 }
 .gyges .tp-thumb-image {
-   padding:3px; 
-   display:block;
-   box-sizing:border-box;
-   position:relative;
+    padding:3px;
+    display:block;
+    box-sizing:border-box;
+    position:relative;
     -webkit-box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
-  -moz-box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
-  box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
+    box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
  }  
 .gyges .tp-thumb-title { 
      position:absolute; 
@@ -1368,8 +1367,8 @@ website:    http://www.themepunch.com
   border:5px solid #222;
   border-radius:50%;
   box-sizing:content-box;
-  -webkit-perspective:400;
-  perspective:400;
+  -webkit-perspective:400px;
+  perspective:400px;
   -webkit-transform:translateZ(0.01px);
   transform:translateZ(0.01px);
    transition:all 0.3s;
@@ -1392,8 +1391,8 @@ website:    http://www.themepunch.com
   transition:all 0.3s;
   -webkit-transform-style:flat;
   transform-style:flat;
-  perspective:600;
-  -webkit-perspective:600;
+  perspective:600px;
+  -webkit-perspective:600px;
   transform: scale(0);
   -webkit-transform: scale(0);
   transform-origin:50% 100%;
@@ -1419,7 +1418,7 @@ border-radius:6px;
     font-size:13px;
     font-weight:700;
     text-transform:uppercase;
-    font-family:"Roboto Slab"
+    font-family:"Roboto Slab";
     margin-bottom:5px;
 }
 
@@ -2179,7 +2178,7 @@ website:    http://www.themepunch.com
 	position:absolute;
 	width:100%;
 	height:100%;
-	background:#transparent;
+	background:transparent;
 	padding:10px;
 	margin-left:-10px;margin-top:-10px;
 	box-sizing:content-box;
