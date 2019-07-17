@@ -1,8 +1,5 @@
-/*
- * Version: 2.1.2
- * File Description: Place here your custom CSS styles
- */
 .plan ul li {padding:8px 0px; font-size:16px;}
 .dark-bg {background:linear-gradient(to right, #373737 10%, #4e4e4e 50%, #4e4e4e 50%, #373737 90%)!important;}
 .default-bg {background:linear-gradient(to right, #c82727 10%, #d84a4a 50%, #d84a4a 50%, #c82727 90%)!important;}
 .transparent-header.gradient-background-header.fixed-header-on .dark.header.fixed{background-color: rgba(0, 0, 0, 0.7)}
+.errorMessages {background-color: #ffffff!important;}

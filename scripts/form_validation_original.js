@@ -20,15 +20,15 @@ $("form").submit(function(e) {
     sEmail = $("#email").val();
 
     if ($("#name").val() === ""){
-        nameError = "Name required"; // set error on name
+        nameError = "Name required";
         $("#nameError").show();
         $("#name").removeClass("is-valid").addClass("is-invalid");
     }else if ($("#name").val().match("^[a-zA-Z' .,\s-]{0,150}$")) {
-        nameError = ""; // remove error on name
-        $("#nameError").hide(); // hide error span
+        nameError = "";
+        $("#nameError").hide();
         $("#name").removeClass("is-invalid").addClass("is-valid");
     }else{
-        nameError = "Only letters, spaces, hyphens and apostrophes allowed." // set new error on name
+        nameError = "Only letters, spaces, hyphens and apostrophes allowed."
         $("#nameError").show(); // show error span
         $("#name").removeClass("is-valid").addClass("is-invalid");
     }
@@ -41,7 +41,8 @@ $("form").submit(function(e) {
         $("#emailError").show(); // show error span
         $("#email").removeClass("is-valid").addClass("is-invalid");
     } else if (validateEmail(sEmail)) {
-        emailError = ""; // remove error on email$("#emailError").hide(); // hide error span
+        emailError = ""; // remove error on email
+        $("#emailError").hide(); // hide error span
         $("#email").removeClass("is-invalid").addClass("is-valid");
     }else{
         emailError = "Invalid email address"; // set new error on email
