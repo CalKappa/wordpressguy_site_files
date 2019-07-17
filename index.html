@@ -393,29 +393,56 @@
             </div>
             <div id="contact_us"></div>
         </section><!-- /pricing -->
-        <div class="dark-translucent-bg footer-top animated-text default-hovered" style="">
+        <section class="pv-40">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <h1 class="text-center mt-4 large">Contact <strong>Us</strong> <span class="text-default">Today</span></h1>
+                        <div class="separator"></div>
+                        <p class="large text-center">
+                            Ready to get started? Have a question? Use the form below and we will contact you.
+                        </p>
+                        <form id="contact-form" method="post">
+                            <div id="messageSuccess" class="alert alert-success alert-dismissible fade show">
+                                <p><strong>Thank you!</strong></p>
+                                <p>Your message has been sent. We will respond as soon as possible.</p>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="form-group input-group-sm">
+                                <label for="name">Name</label>
+                                <input id="name" class="form-control" type="text" style="height:35px;" placeholder="Enter name here…">
+                                <div id="nameError"></div>
+                            </div>
+                            <div class="form-group input-group-sm">
+                                <label for="email">Email</label>
+                                <input id="email" class="form-control" type="email" placeholder="Enter email here…">
+                                <div id="emailError" class="errorMessages"></div>
+                            </div>
+                            <div class="form-group input-group-sm">
+                                <label for="message">How can we help you?</label>
+                                <textarea id="message" class="form-control" rows="5" placeholder="Enter your message…"></textarea>
+                                <div id="messageError"></div>
+                            </div>
+                            <button class="btn btn-animated btn-lg btn-default-transparent" type="button" onClick="submitToAPI(event)">Submit <i class="fa fa-envelope-o pl-20"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /contact us form -->
+        <div class="default-bg footer-top">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="call-to-action text-center">
+                        <div class="text-center">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <p class="mt-3"><a href="tel: 0027823057490" class="btn btn-animated btn-lg btn-gray-transparent">Telephone <i class="fa fa-phone pl-20"></i></a></p>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <h2 class="mt-4">Talk to Us.</h2>
-                                    <h2 class="mt-4">We're Ready To Help You.</h2>
-                                </div>
-                                <div class="col-md-4">
-                                    <p class="mt-3"><a href="mailto:administrator@wordpressguy.co.za?Subject=I%20need%20help" class="btn btn-animated btn-lg btn-gray-transparent">Email <i class="fa fa-envelope-o pl-20"></i></a></p>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!-- /ribbon -->
+        </div><!-- /red ribbon -->
         <footer id="footer" class="clearfix">
             <div class="footer">
                 <div class="container">
@@ -458,13 +485,114 @@
     <script type="text/javascript" src="/js/extensions/revolution.extension.carousel.min.js"></script>
     <script type="text/javascript" src="/js/extensions/revolution.extension.navigation.min.js"></script>
     <script>
+        $("#messageSuccess").hide();
+        $("#name, #email, #message").css("border-color", "");
+        // Function to defer images on load and then load them once the rest of the page is loaded.
         function init() {
-            var imgDefer = document.getElementsByTagName('img');
-            for (var i=0; i<imgDefer.length; i++) {
-                if(imgDefer[i].getAttribute('data-src')) {
-                    imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
-                } } }
-                window.onload = init;
+            let imgDefer = document.getElementsByTagName('img');
+            for (let i = 0; i < imgDefer.length; i++) {
+                if (imgDefer[i].getAttribute('data-src')) {
+                    imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+                }
+            }
+        }
+        window.onload = init;
+
+        // Function to validate email address through regular expression
+        function validateEmail(sEmail) {
+            let filter = /^[\w-.+]+@[a-zA-Z0-9.-]+.[a-zA-z0-9]{2,4}$/;
+            if (filter.test(sEmail)) {
+                return true;
+            } else {
+                return false;
+            };
+        };
+        // Form validation
+        function submitToAPI(e) {
+            e.preventDefault();
+
+            let nameError = "";
+            let emailError = "";
+            let messageError = "";
+
+            if ($("#name").val() === ""){
+                nameError = "Name required";
+                $("#nameError").show();
+                $("#name").removeClass("is-valid").addClass("is-invalid");
+            }else if ($("#name").val().match("^[a-zA-Z' .,\s-]{0,150}$")) {
+                nameError = "";
+                $("#nameError").hide();
+                $("#name").removeClass("is-invalid").addClass("is-valid");
+            }else{
+                nameError = "Only letters, spaces, hyphens and apostrophes allowed."
+                $("#nameError").show();
+                $("#name").removeClass("is-valid").addClass("is-invalid");
+            }
+            $("#nameError").html('<div class="alert alert-danger" role="alert" style="padding:5px; margin:3px;">' + nameError + '</div>');
+
+            sEmail = $("#email").val();
+            if ($("#email").val() === "") {
+                emailError = "Email required";
+                $("#emailError").show();
+                $("#email").removeClass("is-valid").addClass("is-invalid");
+            } else if (validateEmail(sEmail)) {
+                emailError = "";
+                $("#emailError").hide();
+                $("#email").removeClass("is-invalid").addClass("is-valid");
+            }else{
+                emailError = "Invalid email address";
+                $("#emailError").show();
+                $("#email").removeClass("is-valid").addClass("is-invalid");
+            }
+            $("#emailError").html('<div class="alert alert-danger" role="alert" style="padding:5px; margin:3px;">' + emailError + '</div>');
+
+            if ($("#message").val() === "") {
+                messageError = "Please enter your message";
+                $("#messageError").show();
+                $("#message").removeClass("is-valid").addClass("is-invalid");
+
+            }else{
+                messageError = "";
+                $("#messageError").hide();
+                $("#message").removeClass("is-invalid").addClass("is-valid");
+            }
+            $("#messageError").html('<div class="alert alert-danger" role="alert" style="padding:5px; margin:3px;">' + messageError + '</div>');
+
+            if (nameError || emailError || messageError !== "") {
+                // check for errors - if found block submit
+                return;
+            }else{
+                // all good - allow submit
+                let name = $("#name").val();
+                let email = $("#email").val();
+                let desc = $("#message").val();
+                let data = {
+                    name: name,
+                    email: email,
+                    desc: desc
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "https://62sz3zea1f.execute-api.eu-west-1.amazonaws.com/a1/contact-us",
+                    dataType: "json",
+                    crossDomain: "true",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
+
+                    success: function () {
+                        // clear form and show a success message
+                        $("#messageSuccess").show();
+                        $("#name, #email, #message").removeClass("is-valid");
+                        $("#name, #email, #message").css("border-color", "#e1e1e1")
+                        document.getElementById("contact-form").reset();
+                    },
+                    error: function () {
+                        alert("An error occurred. Please try again later.");
+                    }
+                });
+                return true;
+            }
+        }
     </script>
 </body>
 </html>
