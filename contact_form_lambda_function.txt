@@ -1,0 +1,43 @@
+let AWS = require('aws-sdk');
+let ses = new AWS.SES();
+
+let RECEIVER = 'contactus@thegocompany.co.za';
+let SENDER = 'contactus@thegocompany.co.za';
+
+let response = {
+ "isBase64Encoded": false,
+ "headers": { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': 'thegocompany.co.za'},
+ "statusCode": 200,
+ "body": "{\"result\": \"Success.\"}"
+ };
+
+exports.handler = function (event, context) {
+    console.log('Received event:', event);
+    sendEmail(event, function (err, data) {
+        context.done(err, null);
+    });
+};
+
+function sendEmail (event, done) {
+    let params = {
+        Destination: {
+            ToAddresses: [
+                RECEIVER
+            ]
+        },
+        Message: {
+            Body: {
+                Text: {
+                    Data: 'Name: ' + event.name + '\nEmail: ' + event.email + '\nContact Number: ' + event.number + '\nMessage: ' + event.desc,
+                    Charset: 'UTF-8'
+                }
+            },
+            Subject: {
+                Data: 'Website Message From: ' + event.name,
+                Charset: 'UTF-8'
+            }
+        },
+        Source: SENDER
+    };
+    ses.sendEmail(params, done);
+}
